@@ -1,20 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cal-deployment
+  name: bluegreen-deployment
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
-      app: cal-app
+      app: bluegreen-app
+      version: blue
   template:
     metadata:
       labels:
-        app: cal-app
+        app: bluegreen-app
+        version: blue
     spec:
       containers:
-      - name: cal-container
-        image: nginx:latest
+      - name: bluegreen-container
+        image: argoproj/rollouts-demo:blue
         ports:
-        - containerPort: 80
+        - containerPort: 8080
+
 
