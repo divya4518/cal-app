@@ -16,8 +16,9 @@ spec:
     spec:
       containers:
       - name: bluegreen-container
-        image: argoproj/rollouts-demo:blue
+        image: nginx:latest
         ports:
         - containerPort: 8080
+
 
 
